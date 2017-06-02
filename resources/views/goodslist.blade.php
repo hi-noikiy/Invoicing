@@ -18,63 +18,41 @@
                 </div>
             </div>
             <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>商品编号</th>
-                        <th>名称</th>
-                        <th>型号</th>
-                        <th>库存</th>
-                        <th>商品单价</th>
-                        <th>备注</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><a class="btn-link" href="#"> Order #53431</a></td>
-                        <td>Steve N. Horton</td>
-                        <td><span class="text-muted"><i class="demo-pli-clock"></i> Oct 22, 2014</span></td>
-                        <td>$45.00</td>
-                        <td>
-                            <div class="label label-table label-success">Paid</div>
-                        </td>
-                        <td>-</td>
-                        <td>
-                            <button class="btn btn-primary">编辑</button>
-                            <button class="btn btn-danger">删除</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a class="btn-link" href="#"> Order #53431</a></td>
-                        <td>Steve N. Horton</td>
-                        <td><span class="text-muted"><i class="demo-pli-clock"></i> Oct 22, 2014</span></td>
-                        <td>$45.00</td>
-                        <td>
-                            <div class="label label-table label-success">Paid</div>
-                        </td>
-                        <td>-</td>
-                        <td>
-                            <button class="btn btn-primary">编辑</button>
-                            <button class="btn btn-danger">删除</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a class="btn-link" href="#"> Order #53431</a></td>
-                        <td>Steve N. Horton</td>
-                        <td><span class="text-muted"><i class="demo-pli-clock"></i> Oct 22, 2014</span></td>
-                        <td>$45.00</td>
-                        <td>
-                            <div class="label label-table label-success">Paid</div>
-                        </td>
-                        <td>-</td>
-                        <td>
-                            <button class="btn btn-primary">编辑</button>
-                            <button class="btn btn-danger">删除</button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                @if(count($goods)>0)
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>商品编号</th>
+                            <th>名称</th>
+                            <th>型号</th>
+                            <th>库存</th>
+                            <th>商品单价</th>
+                            <th>备注</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($goods as $good)
+                            <tr>
+                                <td><a class="btn-link" href="#">{{$good['number']}}</a></td>
+                                <td>{{$good['name']}}</td>
+                                <td><span class="text-muted">{{$good['version']}}</span></td>
+                                <td>{{$good['inventory']}}</td>
+                                <td>
+                                    <div class="label label-table label-success">{{$good['prices']}}</div>
+                                </td>
+                                <td>{{$good['remarks']}}</td>
+                                <td>
+                                    <a class="btn btn-primary" href="{{url('/goodsedit',$good['id'])}}">编辑</a>
+                                    <a class="btn btn-danger" href="{{url('/goodsdel',$good['id'])}}">删除</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <div class="alert alert-danger">暂时没有添加商品</div>
+                @endif;
             </div>
         </div>
         <!--===================================================-->
@@ -94,73 +72,81 @@
                     </button>
                     <h4 class="modal-title">添加商品</h4>
                 </div>
+                <form class="form-horizontal" action="{{url('/goodscreate')}}" method="post">
+                    <!--Modal body-->
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel">
+                                    <!--Input Size-->
+                                    <!--===================================================-->
 
-                <!--Modal body-->
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel">
-
-
-                                <!--Input Size-->
-                                <!--===================================================-->
-                                <form class="form-horizontal">
+                                    {{csrf_field()}}
                                     <div class="panel-body">
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label" for="demo-is-inputsmall">商品编号</label>
                                             <div class="col-sm-6">
-                                                <input type="text" placeholder="商品编号" class="form-control input-sm" id="demo-is-inputsmall">
+                                                <input name="number" type="text" placeholder="商品编号"
+                                                       class="form-control input-sm" id="demo-is-inputsmall">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label" for="demo-is-inputsmall">名称</label>
                                             <div class="col-sm-6">
-                                                <input type="text" placeholder="名称" class="form-control input-sm" id="demo-is-inputsmall">
+                                                <input name="name" type="text" placeholder="名称"
+                                                       class="form-control input-sm" id="demo-is-inputsmall">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label" for="demo-is-inputsmall">型号</label>
                                             <div class="col-sm-6">
-                                                <input type="text" placeholder="型号" class="form-control input-sm" id="demo-is-inputsmall">
+                                                <input name="version" type="text" placeholder="型号"
+                                                       class="form-control input-sm" id="demo-is-inputsmall">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label" for="demo-is-inputsmall">库存</label>
                                             <div class="col-sm-6">
-                                                <input type="text" placeholder="库存" class="form-control input-sm" id="demo-is-inputsmall">
+                                                <input name="inventory" type="text" placeholder="库存"
+                                                       class="form-control input-sm" id="demo-is-inputsmall">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label" for="demo-is-inputsmall">单价</label>
                                             <div class="col-sm-6">
-                                                <input type="text" placeholder="单价" class="form-control input-sm" id="demo-is-inputsmall">
+                                                <input name="prices" type="text" placeholder="单价"
+                                                       class="form-control input-sm" id="demo-is-inputsmall">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label" for="demo-is-inputsmall">备注</label>
                                             <div class="col-sm-6">
-                                                <input type="text" placeholder="备注" class="form-control input-sm" id="demo-is-inputsmall">
+                                                <input name="remarks" type="text" placeholder="备注"
+                                                       class="form-control input-sm" id="demo-is-inputsmall">
                                             </div>
                                         </div>
                                     </div>
-                                </form>
-                                <!--===================================================-->
-                                <!--End Input Size-->
+
+                                    <!--===================================================-->
+                                    <!--End Input Size-->
 
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!--Modal footer-->
-                <div class="modal-footer">
-                    <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
-                    <button class="btn btn-primary">添加</button>
-                </div>
+                    <!--Modal footer-->
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+                        <button class="btn btn-primary" type="submit">添加</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
     <!--===================================================-->
     <!--End Default Bootstrap Modal-->
+
+
 @stop

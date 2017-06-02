@@ -16,3 +16,11 @@ Route::get('/', function () {
 });
 
 Route::get('/goodslist','GoodsController@goodsList');
+
+Route::post('/goodscreate','GoodsController@goodsCreate');
+
+Route::get('/goodsdel/{id}','GoodsController@goodsDel');
+
+Route::get('/goodsedit/{id}','GoodsController@goodsEdit');
+
+Route::post('/goodsupdate','GoodsController@goodsUpdate');

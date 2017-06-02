@@ -11,70 +11,69 @@
     <!--=================================================-->
 
     <!--Open Sans Font [ OPTIONAL ]-->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
 
     <!--Nifty Stylesheet [ REQUIRED ]-->
-    <link href="css/nifty.min.css" rel="stylesheet">
+    <link href="{{asset('css/nifty.min.css')}}" rel="stylesheet">
 
 
     <!--Nifty Premium Icon [ DEMONSTRATION ]-->
-    <link href="css/demo/nifty-demo-icons.min.css" rel="stylesheet">
+    <link href="{{asset('css/demo/nifty-demo-icons.min.css')}}" rel="stylesheet">
 
 
     <!--Demo [ DEMONSTRATION ]-->
-    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+    <link href="{{asset('css/demo/nifty-demo.min.css')}}" rel="stylesheet">
 
 
     <!--Morris.js [ OPTIONAL ]-->
-    <link href="plugins/morris-js/morris.min.css" rel="stylesheet">
+    <link href="{{asset('plugins/morris-js/morris.min.css')}}" rel="stylesheet">
 
 
     <!--Magic Checkbox [ OPTIONAL ]-->
-    <link href="plugins/magic-check/css/magic-check.min.css" rel="stylesheet">
+    <link href="{{asset('plugins/magic-check/css/magic-check.min.css')}}" rel="stylesheet">
 
 
     <!--JAVASCRIPT-->
     <!--=================================================-->
 
     <!--Pace - Page Load Progress Par [OPTIONAL]-->
-    <link href="plugins/pace/pace.min.css" rel="stylesheet">
-    <script src="plugins/pace/pace.min.js"></script>
+    <link href="{{asset('plugins/pace/pace.min.css')}}" rel="stylesheet">
+    <script src="{{asset('plugins/pace/pace.min.js')}}"></script>
 
 
     <!--jQuery [ REQUIRED ]-->
-    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="j{{asset('s/jquery-2.2.4.min.js')}}"></script>
 
 
     <!--BootstrapJS [ RECOMMENDED ]-->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
 
     <!--NiftyJS [ RECOMMENDED ]-->
-    <script src="js/nifty.min.js"></script>
+    <script src="{{asset('js/nifty.min.js')}}"></script>
 
 
     <!--=================================================-->
 
     <!--Demo script [ DEMONSTRATION ]-->
-    <script src="js/demo/nifty-demo.min.js"></script>
+    <script src="{{asset('js/demo/nifty-demo.min.js')}}"></script>
 
 
     <!--Morris.js [ OPTIONAL ]-->
-    <script src="plugins/morris-js/morris.min.js"></script>
-    <script src="plugins/morris-js/raphael-js/raphael.min.js"></script>
+    {{--<script src="plugins/morris-js/morris.min.js')}}'"></script>--}}
+    {{--<script src="plugins/morris-js/raphael-js/raphael.min.js"></script>--}}
 
 
     <!--Sparkline [ OPTIONAL ]-->
-    <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="{{asset('plugins/sparkline/jquery.sparkline.min.js')}}"></script>
 
 
     <!--Specify page [ SAMPLE ]-->
-    <script src="js/demo/dashboard.js"></script>
+    {{--<script src="js/demo/dashboard.js"></script>--}}
 
 
     <!--=================================================
@@ -120,7 +119,7 @@
             <!--================================-->
             <div class="navbar-header">
                 <a href="index.html" class="navbar-brand">
-                    <img src="img/logo.png" alt="Nifty Logo" class="brand-icon">
+                    <img src="{{asset('img/logo.png')}}" alt="Nifty Logo" class="brand-icon">
                     <div class="brand-title">
                         <span class="brand-text">进销存</span>
                     </div>
