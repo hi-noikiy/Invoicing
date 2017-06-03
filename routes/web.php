@@ -24,3 +24,7 @@ Route::get('/goodsdel/{id}','GoodsController@goodsDel');
 Route::get('/goodsedit/{id}','GoodsController@goodsEdit');
 
 Route::post('/goodsupdate','GoodsController@goodsUpdate');
+
+Route::get('/capitalconfig','CapitalController@capitalConfig');
+
+Route::post('/capitalupdate','CapitalController@capitalUpdate');

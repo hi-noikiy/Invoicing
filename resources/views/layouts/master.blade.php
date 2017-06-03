@@ -209,7 +209,7 @@
 
                                 <!--Menu list item-->
                                 <li class="active-link">
-                                    <a href="index.html">
+                                    <a href="{{url('goodslist')}}">
                                         <i class="demo-psi-home"></i>
                                         <span class="menu-title">
 												<strong>商品管理</strong>
@@ -249,7 +249,7 @@
                                 <li class="list-header">财务管理</li>
                                 <!--Menu list item-->
                                 <li class="">
-                                    <a href="index.html">
+                                    <a href="{{url('capitalconfig')}}">
                                         <i class="demo-psi-home"></i>
                                         <span class="menu-title">
 												<strong>设置资产</strong>
