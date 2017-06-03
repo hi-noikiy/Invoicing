@@ -40,8 +40,9 @@
                                 <td>{{$order['remarks']}}</td>
                                 <td>{{$type[$order['type']]}}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{url('/goodsedit',$order['id'])}}">编辑</a>
-                                    <a class="btn btn-danger" href="{{url('/goodsdel',$order['id'])}}">删除</a>
+                                    @if($order['type'] == 1)
+                                        <a class="btn btn-primary" href="{{url('/ordercancel',$order['id'])}}">退货</a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

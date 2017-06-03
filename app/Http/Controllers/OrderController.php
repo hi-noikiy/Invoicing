@@ -63,4 +63,18 @@ class OrderController extends Controller
         $data['orders'] = $orders;
         return view('orderlist', $data);
     }
+
+    public function orderCancel($id)
+    {
+        $order = Order::find($id);
+        $order->type = 2;
+        $order->save();
+        $goods = Goods::find($order->goods_id);
+        $goods->inventory = $goods->inventory + $order->number;
+        $goods->save();
+        $capital = Capital::find(1);
+        $capital->now_money = $capital->now_money - ($order->number * $order->prices);
+        $capital->save();
+        return redirect('orderlist');
+    }
 }
