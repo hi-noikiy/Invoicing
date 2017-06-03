@@ -32,3 +32,7 @@ Route::post('/capitalupdate','CapitalController@capitalUpdate');
 Route::get('/orderin','OrderController@orderin');
 
 Route::post('/orderincreate','OrderController@orderInCreate');
+
+Route::get('/orderout','OrderController@orderOut');
+
+Route::post('/orderoutcreate','OrderController@orderOutCreate');

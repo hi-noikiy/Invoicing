@@ -34,4 +34,25 @@ class OrderController extends Controller
         $capital->save();
         return redirect('orderin');
     }
+
+    public function orderOut()
+    {
+        $goods = Goods::all()->toArray();
+        $data['goods'] = $goods;
+        return view('orderout', $data);
+    }
+
+    public function orderOutCreate(Request $request)
+    {
+        $data = $request->all();
+        $data['type'] = 1;
+        $order = Order::create($data);
+        $goods = Goods::find($data['goods_id']);
+        $goods->inventory = $goods->inventory - $data['number'];
+        $goods->save();
+        $capital = Capital::find(1);
+        $capital->now_money = $capital->now_money + ($data['number'] * $data['prices']);
+        $capital->save();
+        return redirect('orderin');
+    }
 }

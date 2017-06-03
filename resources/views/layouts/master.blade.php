@@ -229,10 +229,10 @@
                                 </li>
                                 <!--Menu list item-->
                                 <li class="">
-                                    <a href="index.html">
+                                    <a href="{{url('orderout')}}">
                                         <i class="demo-psi-home"></i>
                                         <span class="menu-title">
-												<strong>商品出库</strong>
+												<strong>商品售出</strong>
 											</span>
                                     </a>
                                 </li>
@@ -253,15 +253,6 @@
                                         <i class="demo-psi-home"></i>
                                         <span class="menu-title">
 												<strong>设置资产</strong>
-											</span>
-                                    </a>
-                                </li>
-                                <!--Menu list item-->
-                                <li class="">
-                                    <a href="index.html">
-                                        <i class="demo-psi-home"></i>
-                                        <span class="menu-title">
-												<strong>当前资产</strong>
 											</span>
                                     </a>
                                 </li>
