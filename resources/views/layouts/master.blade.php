@@ -238,7 +238,7 @@
                                 </li>
                                 <!--Menu list item-->
                                 <li class="">
-                                    <a href="index.html">
+                                    <a href="{{url('orderlist')}}">
                                         <i class="demo-psi-home"></i>
                                         <span class="menu-title">
 												<strong>销售列表</strong>

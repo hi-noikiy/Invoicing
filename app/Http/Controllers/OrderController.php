@@ -55,4 +55,12 @@ class OrderController extends Controller
         $capital->save();
         return redirect('orderin');
     }
+
+    public function orderList()
+    {
+        $orders = Order::with('goods')->get()->toArray();
+        $data['type'] = ['入库','售出','退货'];
+        $data['orders'] = $orders;
+        return view('orderlist', $data);
+    }
 }
