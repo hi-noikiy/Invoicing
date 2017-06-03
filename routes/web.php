@@ -28,3 +28,7 @@ Route::post('/goodsupdate','GoodsController@goodsUpdate');
 Route::get('/capitalconfig','CapitalController@capitalConfig');
 
 Route::post('/capitalupdate','CapitalController@capitalUpdate');
+
+Route::get('/orderin','OrderController@orderin');
+
+Route::post('/orderincreate','OrderController@orderInCreate');

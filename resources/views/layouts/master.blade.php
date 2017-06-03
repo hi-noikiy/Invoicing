@@ -220,7 +220,7 @@
                                 <li class="list-header">订单管理</li>
                                 <!--Menu list item-->
                                 <li class="">
-                                    <a href="index.html">
+                                    <a href="{{url('orderin')}}">
                                         <i class="demo-psi-home"></i>
                                         <span class="menu-title">
 												<strong>商品入库</strong>
