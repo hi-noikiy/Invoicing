@@ -49,8 +49,8 @@
                         </tbody>
                     </table>
                 @else
-                    <div class="alert alert-danger">暂时没有添加商品</div>
-                @endif;
+                    <div class="alert alert-danger">暂时没有订单</div>
+                @endif
             </div>
         </div>
         <!--===================================================-->
