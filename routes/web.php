@@ -40,3 +40,5 @@ Route::post('/orderoutcreate','OrderController@orderOutCreate');
 Route::get('/orderlist','OrderController@orderList');
 
 Route::get('/ordercancel/{id}','OrderController@orderCancel');
+
+Route::get('/situation','OrderController@situation');

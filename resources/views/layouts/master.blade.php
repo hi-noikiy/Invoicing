@@ -37,6 +37,8 @@
     <link href="{{asset('plugins/magic-check/css/magic-check.min.css')}}" rel="stylesheet">
 
 
+    <link href="{{asset('layui/css/layui.css')}}" rel="stylesheet" media="all">
+
     <!--JAVASCRIPT-->
     <!--=================================================-->
 
@@ -64,49 +66,26 @@
 
 
     <!--Morris.js [ OPTIONAL ]-->
-    {{--<script src="plugins/morris-js/morris.min.js')}}'"></script>--}}
-    {{--<script src="plugins/morris-js/raphael-js/raphael.min.js"></script>--}}
+{{--<script src="plugins/morris-js/morris.min.js')}}'"></script>--}}
+{{--<script src="plugins/morris-js/raphael-js/raphael.min.js"></script>--}}
 
 
-    <!--Sparkline [ OPTIONAL ]-->
+<!--Sparkline [ OPTIONAL ]-->
     <script src="{{asset('plugins/sparkline/jquery.sparkline.min.js')}}"></script>
 
 
     <!--Specify page [ SAMPLE ]-->
     {{--<script src="js/demo/dashboard.js"></script>--}}
 
-
+    <script src="{{asset('layui/layui.js')}}" charset="utf-8"></script>
     <!--=================================================
 
-    REQUIRED
-    You must include this in your project.
 
 
-    RECOMMENDED
-    This category must be included but you may modify which plugins or components which should be included in your project.
+    </head>
 
-
-    OPTIONAL
-    Optional plugins. You may choose whether to include it in your project or not.
-
-
-    DEMONSTRATION
-    This is to be removed, used for demonstration purposes only. This category must not be included in your project.
-
-
-    SAMPLE
-    Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
-
-
-    Detailed information and more samples can be found in the document.
-
-    =================================================-->
-
-
-</head>
-
-<!--TIPS-->
-<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+    <!--TIPS-->
+    <!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
 <body>
 <div id="container" class="effect aside-float aside-bright mainnav-lg">
 
@@ -258,7 +237,7 @@
                                 </li>
                                 <!--Menu list item-->
                                 <li class="">
-                                    <a href="index.html">
+                                    <a href="{{url('situation')}}">
                                         <i class="demo-psi-home"></i>
                                         <span class="menu-title">
 												<strong>营业状况</strong>
@@ -313,6 +292,7 @@
 <!--===================================================-->
 <!-- END OF CONTAINER -->
 
-
+@section('script')
+@show
 </body>
 </html>

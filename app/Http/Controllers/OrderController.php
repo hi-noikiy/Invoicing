@@ -6,6 +6,7 @@ use App\Capital;
 use App\Goods;
 use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -59,7 +60,7 @@ class OrderController extends Controller
     public function orderList()
     {
         $orders = Order::with('goods')->get()->toArray();
-        $data['type'] = ['入库','售出','退货'];
+        $data['type'] = ['入库', '售出', '退货'];
         $data['orders'] = $orders;
         return view('orderlist', $data);
     }
@@ -76,5 +77,22 @@ class OrderController extends Controller
         $capital->now_money = $capital->now_money - ($order->number * $order->prices);
         $capital->save();
         return redirect('orderlist');
+    }
+
+    public function situation(Request $request)
+    {
+        $pricesSum = 0;
+        $start_time = $request->start_time ? $request->start_time : '2000-00-00 00:00:00';
+        $end_time = $request->end_time ? $request->end_time : '2099-01-01 23:59:59';
+        $orders = Order::with('goods')->whereDate('created_at', '>=', $start_time)->whereDate('created_at', '<=', $end_time)->get()->toArray();
+        foreach ($orders as $order) {
+            $pricesSum += $order['prices'] * $order['number'];
+        }
+        //计算盈利
+        $data['orders'] = $orders;
+        $data['pricesSum'] = $pricesSum;
+        $data['start_time'] = $start_time;
+        $data['end_time'] = $end_time;
+        return view('situation', $data);
     }
 }
