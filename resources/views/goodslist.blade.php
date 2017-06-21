@@ -52,7 +52,7 @@
                     </table>
                 @else
                     <div class="alert alert-danger">暂时没有添加商品</div>
-                @endif;
+                @endif
             </div>
         </div>
         <!--===================================================-->
