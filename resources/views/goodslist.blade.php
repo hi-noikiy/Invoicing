@@ -72,7 +72,8 @@
                     </button>
                     <h4 class="modal-title">添加商品</h4>
                 </div>
-                <form class="form-horizontal" action="{{url('/goodscreate')}}" method="post">
+                <form class="form-horizontal" action="{{url('/goodscreate')}}" method="post"
+                      onsubmit="return checkIsNull()">
                     <!--Modal body-->
                     <div class="modal-body">
                         <div class="row">
@@ -149,4 +150,18 @@
     <!--End Default Bootstrap Modal-->
 
 
+@stop
+@section('script')
+    <script>
+        var inputNumber = $('form input').length;
+        function checkIsNull() {
+            //检查填写的内容是否有空，只有备注允许为空
+            for (var i = 1; i < inputNumber - 1; i++) {
+                if ($('form input').eq(i).val() == '') {
+                    alert($('form input').eq(i).attr('placeholder') + '不能为空！');
+                    return false;
+                }
+            }
+        }
+    </script>
 @stop
